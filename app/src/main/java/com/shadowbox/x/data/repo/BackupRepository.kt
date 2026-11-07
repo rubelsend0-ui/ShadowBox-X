@@ -41,7 +41,7 @@ import java.util.zip.ZipOutputStream
 
 /**
  * Backup container (.sbxbak):
- *   "SBB1" | salt(16) | kdfIter(4) | AES-256-GCM chunk stream( ZIP{ manifest.json, db.json, blobs/*, thumbs/* } )
+ *   "SBB1" | salt(16) | kdfIter(4) | AES-256-GCM chunk stream( ZIP{ manifest.json, db.json, blobs/<files>, thumbs/<files> } )
  * The key is PBKDF2(backup password). manifest.json carries the VMK, so a backup restores on any device.
  * Per-chunk GCM tags + final-chunk flag give integrity for the entire file.
  */
